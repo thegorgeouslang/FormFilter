@@ -20,10 +20,22 @@ func init() {
 	fh := formHelper{}
 	fh.Rules = map[string]string{
 		"email":    `\w{2,64}@\w{2,64}\.\w{2,64}(\.\w+)?`,
+		"username": "The username must contains only alphanumeric values",
+		"password": `The password must contain at least 8 characters,
+                    1 uppercase character [A-Z],
+                    1 lowercase character [a-z],
+                    1 digit [0-9],
+                    1 special character (!, $, #, etc)`,
 	}
 
 	fh.Messages = map[string]string{
 		"email":    "Invalid email format",
+		"username": "The username must contains only alphanumeric values",
+		"password": `The password must contain at least 8 characters,
+                    1 uppercase character [A-Z],
+                    1 lowercase character [a-z],
+                    1 digit [0-9],
+                    1 special character (!, $, #, etc)`,
 	}
 	FormHelper = &fh
 }
@@ -65,7 +77,7 @@ import (
 )
 
 func main() {
-	// curl -d "email=t@t.com" -X POST http://localhost:3000/signup
+	// curl -d "email=t@t.com&password=123" -X POST http://localhost:3000/signup
 	http.HandleFunc("/signup", controllers.AuthController().Signup)
 
 	panic(http.ListenAndServe(":3000", nil))
@@ -73,8 +85,14 @@ func main() {
 ```
 
 ```
-$ curl -d "email=t@t.com" -X POST http://localhost:3000/signup
+$ curl -d "email=t@t.com&password=123" -X POST http://localhost:3000/signup
 Invalid email format
+The password must contain at least 8 characters,
+                    1 uppercase character [A-Z],
+                    1 lowercase character [a-z],
+                    1 digit [0-9],
+                    1 special character (!, $, #, etc)
+
 ```
 **by [James Mallon]**
 
