@@ -85,7 +85,8 @@ func main() {
 ```
 
 ```
-$ curl -d "email=t@t.com&password=123" -X POST http://localhost:3000/signup
+$ curl -d "email=t@t.com&password=123" -X POST http://localhost:3000/signup     
+
 Invalid email format
 The password must contain at least 8 characters,
                     1 uppercase character [A-Z],
