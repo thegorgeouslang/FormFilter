@@ -81,6 +81,7 @@ func main() {
 ```
 
 ```
+$ curl -d "email=t@t.com" -X POST http://localhost:3000/signup
 Invalid email format
 ```
 **by [James Mallon]**
