@@ -1,8 +1,8 @@
-# Dillinger
+# FormFilter
 
 Rules and error messages for form input fields are created by adding values to the Rules and Message properties:
 
-project/controllers/helpers/FormHelper.go
+**project/controllers/helpers/FormHelper.go**
 ```Go
 package helpers
 
@@ -37,7 +37,7 @@ func init() {
 }
 
 ```
-project/controllers/AuthController.go
+**project/controllers/AuthController.go**
 
 ```Go
 package controllers
@@ -63,7 +63,7 @@ func (this *authController) Signup(w http.ResponseWriter, r *http.Request) {
 
 }
 ```
-main.go
+**main.go**
 ```Go
 package main
 
@@ -86,4 +86,3 @@ Invalid email format
 **by [James Mallon]**
 
 [James Mallon]: <https://www.linkedin.com/in/thiago-mallon/>
-
