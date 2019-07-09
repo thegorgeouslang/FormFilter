@@ -18,17 +18,12 @@ type FormValidator struct {
 func (this *FormValidator) Filter(r *http.Request) (e []error) {
 	_ = r.ParseForm()
 	fields := r.Form
-	for frule, patt := range this.Rules {
-		for field, val := range fields {
-			if frule == field { // if field rule = field
-				cond := regexp.MustCompile(patt)
-				if !cond.MatchString(val[0]) {
-					if len(this.Messages[field]) > 0 {
-						e = append(e, errors.New(this.Messages[field]))
-					} else {
-						e = append(e, errors.New("The field "+field+" doesn't match the condition"))
-					}
-				}
+	for field, val := range fields {
+		if !regexp.MustCompile(this.Rules[field]).MatchString(val[0]) {
+			if len(this.Messages[field]) > 0 {
+				e = append(e, errors.New(this.Messages[field]))
+			} else {
+				e = append(e, errors.New("The field "+field+" doesn't match the condition"))
 			}
 		}
 	}
@@ -36,9 +31,9 @@ func (this *FormValidator) Filter(r *http.Request) (e []error) {
 }
 
 // CheckErrors method -
-func (this *FormValidator) ErrString(es []error, w http.ResponseWriter) (emsg string) {
+func (this *FormValidator) ErrString(es []error) (emsg string) {
 	for _, e := range es {
-		emsg = emsg + e.Error()
+		emsg = emsg + "\n" + e.Error()
 	}
 	return
 }

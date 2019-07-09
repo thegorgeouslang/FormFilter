@@ -49,7 +49,7 @@ func AuthController() *authController {
 func (this *authController) Signup(w http.ResponseWriter, r *http.Request) {
 	// filtering form inputs
 	if errs := FormHelper.Filter(r); len(errs) > 0 {
-		http.Error(w, errs[0].Error(), http.StatusForbidden)
+		http.Error(w, FormHelper.ErrString(errs), http.StatusForbidden)
 		return
 	}
 
