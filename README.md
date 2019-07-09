@@ -1,4 +1,4 @@
-# FormFilter
+# TheGorgeousFormFilter
 
 Rules and error messages for form input fields are created by adding values to the Rules and Message properties:
 
@@ -20,12 +20,8 @@ func init() {
 	fh := formHelper{}
 	fh.Rules = map[string]string{
 		"email":    `\w{2,64}@\w{2,64}\.\w{2,64}(\.\w+)?`,
-		"username": "The username must contains only alphanumeric values",
-		"password": `The password must contain at least 8 characters,
-                    1 uppercase character [A-Z],
-                    1 lowercase character [a-z],
-                    1 digit [0-9],
-                    1 special character (!, $, #, etc)`,
+        "username": `\w+`,
+		"password": `[A-Za-z\d@$!%*#?&]{8,}`,
 	}
 
 	fh.Messages = map[string]string{
