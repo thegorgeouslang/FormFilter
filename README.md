@@ -1,4 +1,4 @@
-# TheGorgeousFormFilter
+# FormValidator
 
 Rules and error messages for form input fields are created by adding values to the Rules and Message properties:
 
@@ -7,7 +7,7 @@ Rules and error messages for form input fields are created by adding values to t
 package helpers
 
 import (
-	. "github.com/thegorgeouslang/formfilter"
+	. "github.com/thegorgeouslang/formvalidator"
 )
 
 var FormHelper = FormValidator{}
