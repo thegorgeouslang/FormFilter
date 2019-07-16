@@ -1,6 +1,6 @@
 // Author: James Mallon <jamesmallondev@gmail.com>
-//  package formfilter -
-package formfilter
+// formvalidator package -
+package formvalidator
 
 import (
 	"net/http"

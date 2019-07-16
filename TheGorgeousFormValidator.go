@@ -1,6 +1,6 @@
 // Author: James Mallon <jamesmallondev@gmail.com>
-// layout package -
-package formfilter
+// formvalidator package -
+package formvalidator
 
 import (
 	"errors"
